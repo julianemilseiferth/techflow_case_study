@@ -8,60 +8,49 @@ This project simulates customer support call records for **TechFlow Solutions**,
 techflow_case_study/
 ├── app/
 │   ├── __init__.py
-│   ├── database.py
-│   ├── export.py
-│   ├── models.py
-│   ├── seed.py
-│   └── streamlit_app.py
+│   ├── models.py           # SQLAlchemy CallRecord schema
+│   ├── database.py         # engine, session, connection handling
+│   ├── seed.py             # Faker + NumPy record generator
+│   ├── export.py           # SQLite -> CSV export
+│   └── streamlit_app.py    # dashboard
 ├── data/
-│   └── call_records.csv
+│   └── call_records.csv    # exported dataset
 ├── memo/
-│   └── business_memo.md
+│   └── business_memo.md    # one-page recommendation
 ├── presentation/
-│   ├── techflow_findings.slides.html
-│   └── techflow_findings.pptx
+│   ├── techflow_findings.pptx
+│   └── techflow_findings.slides.html
+├── images/                 # dashboard screenshots
 ├── .gitignore
 ├── README.md
 └── requirements.txt
-```
-
 ## Setup
 
 ### 1. Create and activate a virtual environment
 
-**Mac/Linux**
-```bash
-python -m venv .venv
-source .venv/bin/activate
-```
+# Mac / Linux
+python -m venv .venv && source .venv/bin/activate
 
-**Windows**
-```powershell
-python -m venv .venv
-.venv\Scripts\activate
+# Windows
+python -m venv .venv && .venv\Scripts\activate
 ```
 
 ### 2. Install dependencies
 
-```bash
 pip install -r requirements.txt
-```
 
 ## Run the project
 
 ### Seed the database with 1000+ records
-```bash
-python -m app.seed
+```python -m app.seed
 ```
 
 ### Export data to CSV
-```bash
-python -m app.export
+``python -m app.export
 ```
 
 ### Launch the Streamlit app
-```bash
-streamlit run app/streamlit_app.py
+``streamlit run app/streamlit_app.py
 ```
 
 ## Business problem
